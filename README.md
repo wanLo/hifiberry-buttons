@@ -1,4 +1,4 @@
-# Hifiberry Buttons
+# HiFiberry Buttons
 
 A short script that starts internet radio on a raspberry pi running [HiFiberryOS](https://github.com/hifiberry/hifiberry-os) at the touch of a button. Also, it adds two buttons for volume control. No additional hardware needed, just a raspberry pi, some buttons and cables.
 
@@ -24,8 +24,9 @@ First, setup a custom root password through the beocreate web interface. Then yo
 Some additional python packages are needed for the script to run. Namely:
 - [gpiozero]()
 - [websockets]()
+
 While you can't install them directly, they can be downloaded with curl from [pypi](https://pypi.org/) and than installed locally with pip.
 
 The python script can be started on boot with a simple systemd service. This repo includes an example (`buttons.service`) that can be placed in `/usr/lib/systemd/system/` and than be activated and enabled.
 
-Note that HiFiberryOS [uses Buildroot](https://github.com/hifiberry/hifiberry-os#adding-packages), so installation is not persistant and must be performed after each system upgrade. Or you could setup your own Buildroot build that includes `hifiberry-buttons`.
+Note that HiFiberryOS [uses Buildroot](https://github.com/hifiberry/hifiberry-os#adding-packages), so installation is not persistant and must be performed after each system upgrade. Or you could setup your own Buildroot build that includes a button control script.
