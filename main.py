@@ -20,8 +20,8 @@ async def playPauseDLF():
     # determine whether a source is playing
     playing = False
     for source in sources:
-        # radio and music are child sources of mpd
-        # so unless mpd is 'playing' nothing can be heard
+        # radio and music are child sources of mpd, so unless mpd is 'playing' nothing can be heard
+        # check all other sources
         if (source != "radio" and source != "music" and sources[source]["playerState"] == "playing"):
             playing = True
     

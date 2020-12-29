@@ -12,18 +12,18 @@ Starting a radio stream can however easily be done in the Beocreate2 web interfa
 ## Implementation
 The main script initializes three buttons with `gpiozero.Button` and than sets up appropriate callbacks for when each of the buttons is pressed.
 
-Since _websockets_ uses asyncio, the radio button must first create an event loop in which the websocket connection can than be run. We ask through the websocket, whether any (main) source is currently playing. If so, we pause the source. Otherwise (if the hifiberry was silent), we start a [Deutschlandfunk radio stream](https://www.deutschlandfunk.de/unsere-live-streams.2396.de.html).
+Since _websockets_ uses asyncio, the radio button handler must first create an event loop in which the websocket connection can than be run. We ask through the websocket, whether any (main) source is currently playing. If so, we pause the source. Otherwise (if the hifiberry was silent), we start a [Deutschlandfunk radio stream](https://www.deutschlandfunk.de/unsere-live-streams.2396.de.html).
 
 Since it takes some time for the radio stream to buffer, a sound is played to give feedback that the stream is now buffering, after the radio button is pressed. Such sounds can be found e.g. on [freesound](https://freesound.org/).
 
-The volume control is performed through the audiocontrol2 REST API, since it support increasing / decreasing volume in percentage points and is more reliable than the beocreate2 service.
+The volume control is performed through the audiocontrol2 REST API, since it supports increasing / decreasing volume in percentage points and is more reliable than the beocreate2 service.
 
 ## Installation
 First, setup a custom root password through the beocreate web interface. Then you can access your raspberry running HiFiberryOS through `ssh root@hifiberry.local` (or a different local name, if you have given it one).
 
 Some additional python packages are needed for the script to run. Namely:
-- [gpiozero]()
-- [websockets]()
+- [gpiozero](https://pypi.org/project/gpiozero/)
+- [websockets](https://pypi.org/project/websockets/)
 
 While you can't install them directly, they can be downloaded with curl from [pypi](https://pypi.org/) and than installed locally with pip.
 
